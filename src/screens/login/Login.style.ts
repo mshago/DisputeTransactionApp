@@ -10,4 +10,12 @@ export const styles = StyleSheet.create({
   title:{
     fontSize:28,
   },
+  textInputSection:{
+    alignSelf:'stretch',
+  },
+  error:{
+    color:'tomato',
+    fontWeight:'600',
+    marginBottom:10,
+  }
 })

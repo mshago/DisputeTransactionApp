@@ -5,4 +5,5 @@ export type ButtonT = {
   title?:string
   containerStyle?:StyleProp<ViewStyle>
   titleStyle?:StyleProp<TextStyle>
+  isLoading?:boolean
 }
