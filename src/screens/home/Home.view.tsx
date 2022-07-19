@@ -3,7 +3,6 @@ import {FlatList, Text, View} from 'react-native';
 import {Container} from '../../components/container/Container';
 import {ListItem} from '../../components/listItem/ListItem';
 import {CustomModal} from '../../components/modal/Modal';
-import { TTransaction } from '../../types/types';
 import {styles} from './Home.style';
 import {THomeScreenView} from './Home.type';
 
@@ -23,7 +22,7 @@ export const HomeScreenView: FC<THomeScreenView> = ({
       <CustomModal
         modalVisible={modalVisible}
         setModalVisible={() => setModalVisible(!modalVisible)}
-        transaction={selectedTransaction}
+        transaction={selectedTransaction!}
         onDispute={onDispute}
       />
       <FlatList
@@ -36,6 +35,7 @@ export const HomeScreenView: FC<THomeScreenView> = ({
         data={transactions}
         renderItem={({item}) => (
           <ListItem
+            disputed={item.disputed}
             date={item.date}
             description={item.description}
             amount={item.amount}

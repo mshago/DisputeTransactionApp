@@ -16,8 +16,14 @@ export type TTransaction = {
   date:string
   type:string
   user:string
+  disputed:boolean
 }
 
 export type TDispute = {
 
+}
+
+export enum EDisputeReasons {
+  MERCHANDISE_OR_SERVICE_NOT_RECEIVED = "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+  FRAUD = 'FRAUD',
 }

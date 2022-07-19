@@ -19,7 +19,7 @@ export const LoginScreenView: FC<LoginScreenViewT> = ({
   return (
     <Container isScrollViewDisabled contentStyle={styles.container}>
       <Text style={styles.title}>Login</Text>
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {error && <Text style={styles.error}>{error}</Text>}
       <Section containerStyle={styles.textInputSection}>
         <TextInput
           title="username"

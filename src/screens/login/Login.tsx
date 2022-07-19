@@ -15,14 +15,16 @@ export const LoginScreen = () => {
 
   const handleLoginOnPress = async () => {
     setError('');
-    setLoading(true);
     if (fields.username && fields.password) {
+      setLoading(true);
       try {
-        useHandleLogin(fields,dispatch);
+        await useHandleLogin(fields,dispatch);
       } catch (error) {
         setError(String(error));
         setLoading(false);
       }
+    }else{
+      setError('Username and Password required')
     }
   };
 

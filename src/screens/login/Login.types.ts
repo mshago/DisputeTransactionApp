@@ -8,5 +8,5 @@ export type LoginScreenViewT = {
     username:string,
     password:string,
   }
-  setFields:Dispatch<any>
+  setFields:Dispatch<{username:string, password:string}>
 }

@@ -1,3 +1,4 @@
+import { useIsFocused } from '@react-navigation/native';
 import React, {FC, useEffect, useState} from 'react';
 import {getTransactions} from '../../helpers/transactions';
 import {EAppNavigationRoutes} from '../../navigation/appNavigation/AppNavigation.type';
@@ -12,6 +13,8 @@ export const HomeScreen: FC<THomeScreen> = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState<TTransaction|null>(null)
 
+  const isFocused = useIsFocused();
+
   useEffect(() => {
     Promise.resolve(getTransactions())
       .then(value => {
@@ -25,7 +28,7 @@ export const HomeScreen: FC<THomeScreen> = ({navigation}) => {
         setError(error);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [isFocused]);
 
   const handleOnDisputeTransaction = (transactionId: string) => {
     setModalVisible(false)
