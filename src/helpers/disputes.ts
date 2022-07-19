@@ -4,7 +4,7 @@ import {getToken} from '../utils/localStorage';
 
 export const createDispute = async (dispute:any) => {
 
-  /**
+  /*
    * dispute = {
    *    transactionId,
    *    reason,
@@ -12,6 +12,14 @@ export const createDispute = async (dispute:any) => {
    * }
    * 
    */
+  // const thisIsFalse = true
+  // try{
+  //   if(thisIsFalse)
+  //     throw 'Something went wrong generating your dispute. Please try again later.'
+  //   return true
+  // } catch(error){
+  //   throw error
+  // }
   try {
     const userId = await getToken(ELocalStorage.USER_ID);
 
@@ -23,7 +31,7 @@ export const createDispute = async (dispute:any) => {
       }),
       ...API_CONFIG,
     });
-    if (!response.ok) throw 'Something went wrong. Please try again later.';
+    if (!response.ok) throw 'Something went wrong generating your dispute. Please try again later.'
     return JSON.parse(await response.text())
   } catch (error) {
     throw(error)
