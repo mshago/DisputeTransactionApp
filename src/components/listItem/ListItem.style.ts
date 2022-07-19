@@ -31,4 +31,7 @@ export const styles = StyleSheet.create({
   options:{
     paddingHorizontal:10,
   },
+  disputeText:{
+    color:colors.red
+  }
 });

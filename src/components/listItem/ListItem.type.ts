@@ -5,4 +5,5 @@ export type TListItem = {
   description:string,
   amount:number,
   onPress:any
+  disputed:boolean
 }
