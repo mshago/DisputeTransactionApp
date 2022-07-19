@@ -7,18 +7,21 @@ export const authReducer = (prevState: TAuthState, action:TAuthAction) => {
         ...prevState,
         token: action.token,
         isLoading: false,
+        userId: action.userId
       };
     case EAuthAction.SIGN_IN:
       return {
         ...prevState,
         token: action.token,
         isSignout: false,
+        userId: action.userId
       };
     case EAuthAction.SIGN_OUT:
       return {
         ...prevState,
         token: null,
         isSignout: true,
+        userId:null,
       };
     default:
       return prevState;

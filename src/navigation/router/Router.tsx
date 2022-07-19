@@ -6,6 +6,9 @@ import {TGetTokenFromLocalStorage} from './Router.type';
 import {useGlobalState} from '../../context/global/global.provider';
 import {EAuthAction} from '../../context/auth';
 import { ELocalStorage } from '../../types/localStorage';
+import { ActivityIndicator, View } from 'react-native';
+import { colors } from '../../theme/colors';
+import { Container } from '../../components/container/Container';
 
 export const Router = () => {
 
@@ -18,6 +21,14 @@ export const Router = () => {
     };
     getTokenFromLocalStorage();
   }, [dispatch]);
+
+  if(state.auth.isLoading){
+    return (
+      <Container>
+        <ActivityIndicator color={colors.primary} size='large'/>
+      </Container>
+    )
+  }
 
   return state.auth.token ? <AppNavigation /> : <AuthNavigation />;
 };

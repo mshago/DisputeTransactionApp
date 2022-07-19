@@ -4,4 +4,5 @@ export const authInitialState:TAuthState = {
   isSignOut: false,
   token: null,
   isLoading: true,
+  userId: null,
 }

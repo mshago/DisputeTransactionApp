@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   ScrollView,
 } from "react-native";
+import { colors } from "../../theme/colors";
 
 import { styles } from "./Container.style";
 import { TContainer } from "./Container.type";
@@ -35,7 +36,7 @@ export const Container: FC<TContainer> = ({
         ]}
         {...rest}
       >
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={colors.primary}/>
       </SafeAreaView>
     );
   }
