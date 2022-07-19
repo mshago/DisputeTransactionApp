@@ -35,7 +35,7 @@ export const CustomModal: FC<TCustomModal> = ({
               titleStyle={styl.outlineButtonText}
               title="Close"
             />
-            <Button containerStyle={styl.button} title="Dispute" onPress={() => onDispute(transaction?._id||'1')} />
+            {!transaction?.disputed && <Button containerStyle={styl.button} title="Dispute" onPress={() => onDispute(transaction._id)} />}
           </View>
         </View>
       </View>
@@ -46,7 +46,7 @@ export const CustomModal: FC<TCustomModal> = ({
 type TCustomModal = {
   modalVisible: boolean;
   setModalVisible: (x: boolean) => void;
-  transaction: TTransaction | null;
+  transaction: TTransaction;
   onDispute:(x:string) => void
 };
 
